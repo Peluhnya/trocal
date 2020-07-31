@@ -19,39 +19,37 @@
         </div>
         <div class="minus" onselectstart="return false" onmousedown="return false">-</div>
     </div>
- <% @entity.cells(19) do |cell4| %>
- <% cache([cell4, locale: I18n.locale]) do %>
-  <% cell = cell4 %>
-  <% id= cell.id %>
-    <div class="right-panel" id="pin<%= id %>">
-        <div class="close-block right-panel-close">
-            <div class="icon close"></div>
-            <span><%= t('shut_down') %></span>
+  <% plants.each do |plant| %>
+
+    <div class="right-panel" id="pin<%= plant.id %>">
+      <div class="close-block right-panel-close">
+        <div class="icon close"></div>
+        <span><%= t('shut_down') %></span>
+      </div>
+      <div class="factory-panel-content">
+        <div class="factory-panel-thumb" style="background-image: url(<%= main_app.url_for(plant.file) %>)"></div>
+        <div class="factory-panel-info">
+          <div class="factory-place"><%= plant.country %></div>
+          <div class="factory-link">
+            <div class="item-name">САЙТ</div>
+            <a href="<%= plant.site %>" target="_blank"><%=plant.site %></a>
+          </div>
+          <div class="factory-phone">
+            <div class="item-name">E-mail</div>
+            <a hre="mailto:<%= plant.site %>"><%=plant.site%></a>
+          </div>
+          <div class="factory-phone">
+            <div class="item-name"><%= t('address') %></div>
+            <%= plant.address_map %>
+          </div>
+          <div class="factory-phone">
+            <div class="item-name"><%= t('tellefons') %></div>
+            <%= plant.phone.html_safe%>
+          </div>
         </div>
-        <div class="factory-panel-content">
-            <div class="factory-panel-thumb" style="background-image: url(<%= main_app.url_for(cell.field(:foto19)) %>)"></div>
-            <div class="factory-panel-info">
-                <div class="factory-place"><%= cell.field(:strana19) %></div>
-                <div class="factory-link">
-                    <div class="item-name">САЙТ</div>
-                    <a href="<%= cell.field(:sayt19) %>" target="_blank"><%= cell.field(:sayt19) %></a>
-                </div>
-                <div class="factory-phone">
-                    <div class="item-name"><%= cell.field_name(:email19) %></div>
-                   <a hre="mailto:<%= cell.field(:email19) %>"><%= cell.field(:email19) %></a>
-                </div>
-                <div class="factory-phone">
-                    <div class="item-name"><%= cell.field_name(:adres_na_karte19) %></div>
-                   <%= cell.field(:adres_na_karte19) %>
-                </div>
-                <div class="factory-phone">
-                    <div class="item-name"><%= t('tellefons') %></div>
-                   <%= cell.field(:telefony19) %>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-<% end %><% end %>
+  <% end %>
     <footer class="row justify-content-center">
         <div class="s-container">
             <div class="row">
