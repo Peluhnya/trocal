@@ -256,12 +256,14 @@
 
             var map = new google.maps.Map(mapElement, mapOptions);
             <% @partners.each do |cell| %>
+            <% if cell.coordinates.present? %>
             <% c = cell.coordinates.split(', ')%>
             addMarker({
                 coordinates:{lat:<%= c[0] %>, lng:<%= c[1] %>},
                 title: 'pin<%= cell.id %>',
                 image: '/assets/img/point-icon.svg'
               });
+          <% end %>
           <% end %>
 
 
