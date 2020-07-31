@@ -1,6 +1,7 @@
 <div class="container-fluid where-to-buy-page">
-  <%= render 'world_map' %>
+  <% plants = Iteasykit::Plant.where(active: [nil, true]).with_translations(I18n.locale).order('iteasykit_plant_translations.country') %>
 
+  <%= render 'world_map', locals: @plants = plants %>
     <!--breadcrumbs-->
 <div class="s-container">
     <div class="row">
