@@ -6,7 +6,7 @@
     "bootstrap-select": "^1.12.4",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "html5shiv": "^3.7.3",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
     "material-design-iconic-font": "^2.2.0",
     "metismenu": "^2.7.4",
